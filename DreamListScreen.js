@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, StyleSheet } from 'react-native';
+import { View, TextInput, StyleSheet } from 'react-native';
+import { Button } from 'react-native-paper';
+import DreamCard from './DreamCard';
 
 const DreamListScreen = () => {
     const [dream, setDream] = useState('');
@@ -18,12 +20,26 @@ const DreamListScreen = () => {
           value={dream}
           onChangeText={setDream}
         />
-        <Button title="Add Dream" onPress={addDream} />
-        {/* Display the dream list */}
+        <Button
+            title="Add Dream"
+            mode="contained"
+            onPress={addDream}
+            style={styles.addButton}
+            labelStyle={styles.buttonLabel}
+        >
+            Add Dream
+        </Button>
         {/* Add styling for the dream list */}
+        {/* ... */}
+        {/* Display the dream list */}
+        {dreamsList.map((dream, index) => (
+            <DreamCard key={index} dream={dream} />
+        ))}
       </View>
     );
   };
+
+  export default DreamListScreen;
 
   const styles = StyleSheet.create({
     container: {
@@ -31,6 +47,7 @@ const DreamListScreen = () => {
       justifyContent: 'center',
       alignItems: 'center',
       backgroundColor: '#8A2BE2', // Lucid purple color
+      paddingBottom: 20,
     },
     input: {
       width: '80%',
@@ -38,6 +55,15 @@ const DreamListScreen = () => {
       backgroundColor: 'white',
       paddingHorizontal: 10,
       marginBottom: 10,
+    },
+    addButton: {
+        marginTop: 10, // Add top margin
+        marginBottom: 20, // Add bottom margin
+        width: '80%',
+    },
+    buttonLabel: {
+        fontSize: 16,
+        fontWeight: 'bold',
     },
   });
   
