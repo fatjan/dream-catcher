@@ -8,17 +8,24 @@ const DreamListScreen = () => {
     const [dreamsList, setDreamsList] = useState([]);
   
     const addDream = () => {
-      setDreamsList([...dreamsList, dream]);
+      setDreamsList([...dreamsList, { dream: dream, details: dreamDetails }]);
       setDream('');
+      setDreamDetails('');
     };
   
     return (
       <View style={styles.container}>
         <TextInput
-          style={styles.input}
-          placeholder="Enter your dream"
-          value={dream}
-          onChangeText={setDream}
+            style={styles.input}
+            placeholder="Enter your dream"
+            value={dream}
+            onChangeText={setDream}
+        />
+        <TextInput
+            style={styles.input}
+            placeholder="Enter dream details"
+            value={dreamDetails}
+            onChangeText={setDreamDetails}
         />
         <Button
             title="Add Dream"
@@ -33,7 +40,7 @@ const DreamListScreen = () => {
         {/* ... */}
         {/* Display the dream list */}
         {dreamsList.map((dream, index) => (
-            <DreamCard key={index} dream={dream} />
+            <DreamCard key={index} dream={dream} details={dream.details} />
         ))}
       </View>
     );
