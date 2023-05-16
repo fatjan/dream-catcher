@@ -5,6 +5,7 @@ import DreamCard from './DreamCard';
 
 const DreamListScreen = () => {
     const [dream, setDream] = useState('');
+    const [dreamDetails, setDreamDetails] = useState('');
     const [dreamsList, setDreamsList] = useState([]);
   
     const addDream = () => {
@@ -40,7 +41,7 @@ const DreamListScreen = () => {
         {/* ... */}
         {/* Display the dream list */}
         {dreamsList.map((dream, index) => (
-            <DreamCard key={index} dream={dream} details={dream.details} />
+            <DreamCard key={index} dream={dream.dream} details={dream.details} />
         ))}
       </View>
     );
