@@ -65,4 +65,4 @@ Note: For more detailed instructions on Firebase setup, refer to the Firebase do
 Contributions are welcome! If you find a bug or have a feature request, please open an issue or create a pull request.
 
 ## License
-This project is licensed under the MIT License.
+This project is licensed under the `[MIT License](LICENSE)`.
